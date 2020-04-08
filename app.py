@@ -1,7 +1,8 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
-from flask_cors import CORSfrom flask_heroku import Heroku
+from flask_cors import CORS
+from flask_heroku import Heroku
 import os
 
 app = Flask(__name__)
@@ -34,6 +35,7 @@ todos_schema = TodoSchema(many=True)
 @app.route("/", methods=["GET"])
 def home():
   return "<h1>Todo Flask API</h1>"
+
 # GET
 @app.route("/todos", methods=["GET"])
 def get_todos():
